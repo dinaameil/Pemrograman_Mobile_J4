@@ -134,12 +134,29 @@ void main() {
             print("  Saldo Anda: Rp $saldo");
           } else {
             saldo -= jumlahTarik;
-            print("  ✅ Penarikan berhasil!");
+            print("\n  ✅ Penarikan berhasil!");
             print("  Silakan ambil uang Rp ${jumlahTarik.toStringAsFixed(0)}");
             print("  Sisa saldo: Rp ${saldo.toStringAsFixed(0)}");
+            
+            // Tanya apakah ingin cetak struk
+            stdout.write("\n  Cetak struk? (y/n): ");
+            String cetak = stdin.readLineSync()?.toLowerCase() ?? 'n';
+            
+            if (cetak == 'y') {
+              print("\n╔═══════════════ STRUK TRANSAKSI ═══════════════╗");
+              print("  BANK DART");
+              print("  ${DateTime.now()}");
+              print("  No. Rekening : $noRekening");
+              print("  Transaksi     : TARIK TUNAI");
+              print("  Jumlah        : Rp ${jumlahTarik.toStringAsFixed(0)}");
+              print("  Sisa Saldo    : Rp ${saldo.toStringAsFixed(0)}");
+              print("  Status        : SUKSES");
+              print("╚════════════════════════════════════════════════╝");
+              print("  Terima kasih telah menggunakan Bank Dart");
+            }
           }
         }
-        
+
         stdout.write("\nTekan Enter untuk kembali ke menu...");
         stdin.readLineSync();
         break;
