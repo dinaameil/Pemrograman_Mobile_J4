@@ -53,9 +53,28 @@ void main() {
     // Switch-case untuk menu
     switch (pilihan) {
       case 1:
-        // Fitur cek saldo (akan diimplementasikan)
-        print("\n--- CEK SALDO ---");
-        print("Saldo Anda: Rp $saldo");
+        print("\n╔═══════════════ CEK SALDO ═══════════════╗");
+        print("  Nomor Rekening : $noRekening");
+        print("  Atas Nama      : $nama");
+        print("  Saldo Anda     : Rp ${saldo.toStringAsFixed(0)}");
+        
+        // Percabangan untuk memberi saran berdasarkan saldo
+        if (saldo > 10000000) {
+          print("  💰 Saldo Anda sangat sehat!");
+        } else if (saldo > 5000000) {
+          print("  💵 Saldo Anda cukup baik");
+        } else if (saldo > 1000000) {
+          print("  💳 Saldo Anda mencukupi");
+        } else if (saldo > 0) {
+          print("  ⚠️  Saldo Anda menipis");
+        } else {
+          print("  🆘 Saldo Rp 0, segera lakukan pengisian!");
+        }
+        print("╚══════════════════════════════════════════╝");
+        
+        // Tanya apakah ingin lanjut
+        stdout.write("\nTekan Enter untuk kembali ke menu...");
+        stdin.readLineSync();
         break;
         
       case 2:
